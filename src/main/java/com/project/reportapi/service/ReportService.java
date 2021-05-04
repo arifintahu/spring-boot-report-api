@@ -29,4 +29,8 @@ public class ReportService {
 	public void deleteReport(Integer id) {
 		reportRepository.deleteById(id);
 	}
+	
+	public long countUnresolved(String extension_id, Integer status) {
+		return reportRepository.countExtStatus(extension_id, status);
+	}
 }

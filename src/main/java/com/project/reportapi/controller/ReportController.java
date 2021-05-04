@@ -51,4 +51,14 @@ public class ReportController {
         reportService.deleteReport(id);
     }
     
+    @GetMapping("/unresolved")
+    public ResponseEntity<?> getUnresolved(@RequestParam String extension_id, @RequestParam Integer status) {
+        try {
+            long countUnresolved = reportService.countUnresolved(extension_id, status);
+            return new ResponseEntity<Long>(countUnresolved, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
 }
