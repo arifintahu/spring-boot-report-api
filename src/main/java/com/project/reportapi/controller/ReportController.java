@@ -30,7 +30,7 @@ public class ReportController {
         }
     }
     
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody Report report) {
         reportService.saveReport(report);
     }
